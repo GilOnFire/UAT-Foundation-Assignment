@@ -1,5 +1,5 @@
 body{
-    background-color:crimson;
+    background-color:rgb(211, 210, 151);
     color:rgb(0, 0, 0)
 }
 nav{
@@ -15,4 +15,12 @@ footer{
 }
 #memeImage{
     margin-right:200px;
+}
+#page-titleOne{
+    color:rgb(0, 0, 0);
+    text-align:center;
+}   
+#page-titleTwo{
+    color:rgb(0, 0, 0);
+    text-align:center;
 }
