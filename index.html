@@ -20,14 +20,87 @@
         <li><a href="resources.html">Resources</a></li>
       </ul>
     </nav>
-    <!-- My meme. -->
-    <p>
+    <!-- Add a controls container for start/stop buttons -->
+    <!-- Add controls wrapper -->
+    <div id="controls">
+      <!-- Add the Start button to begin moving the meme -->
+      <button id="startBtn">Start</button>
+      <!-- Add the Stop button to halt meme movement; start disabled until started -->
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+    <!-- Add a wrapper to contain the meme image for absolute positioning -->
+    <div id="memeWrapper">
+      <!-- Meme image placed with absolute positioning so it can move around -->
       <img
         id="memeImage"
         src="https://i.imgur.com/O82kMVt.jpeg"
         alt="Programming Meme"
       />
-    </p>
+    </div>
+
+    <!-- Add script to implement start/stop movement behavior -->
+    <script>
+      // Reference to the meme image element
+      var memeImage = document.getElementById('memeImage');
+      // Reference to the Start button
+      var startBtn = document.getElementById('startBtn');
+      // Reference to the Stop button
+      var stopBtn = document.getElementById('stopBtn');
+      // Variable to hold the movement interval ID
+      var moverInterval = null;
+      // Function to move the meme to a random location within the viewport
+      function moveMemeRandomly() {
+        // Minimum left offset to avoid overlapping the left nav (200px width + padding)
+        var minLeft = 220;
+        // Compute maximum horizontal position so the image stays visible
+        var maxLeft = Math.max(window.innerWidth - memeImage.offsetWidth - 20, minLeft);
+        // Compute maximum vertical position so the image stays visible above the footer
+        var maxTop = Math.max(window.innerHeight - memeImage.offsetHeight - 60, 10);
+        // Calculate a random X position between minLeft and maxLeft
+        var randX = Math.floor(Math.random() * (maxLeft - minLeft + 1)) + minLeft;
+        // Calculate a random Y position between 10 and maxTop
+        var randY = Math.floor(Math.random() * (maxTop - 10 + 1)) + 10;
+        // Apply the new position to the image
+        memeImage.style.left = randX + 'px';
+        memeImage.style.top = randY + 'px';
+      }
+      // Handler for Start button click: begin moving the meme periodically
+      startBtn.addEventListener('click', function () {
+        // Disable Start while running
+        startBtn.disabled = true;
+        // Enable Stop so the user can halt movement
+        stopBtn.disabled = false;
+        // Move immediately once for responsiveness
+        moveMemeRandomly();
+        // Start an interval to keep moving the meme every 600ms
+        moverInterval = setInterval(moveMemeRandomly, 600);
+      });
+      // Handler for Stop button click: stop movement
+      stopBtn.addEventListener('click', function () {
+        // Clear the interval if running
+        if (moverInterval !== null) {
+          clearInterval(moverInterval);
+          moverInterval = null;
+        }
+        // Re-enable Start and disable Stop
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+      });
+      // Ensure the meme has initial inline positioning so style.left/top work
+      memeImage.style.position = 'absolute';
+      memeImage.style.left = '220px';
+      memeImage.style.top = '120px';
+      // Reposition the meme if the window resizes to keep it visible
+      window.addEventListener('resize', function () {
+        // If not moving, keep the image inside bounds
+        if (moverInterval === null) {
+          var rectRight = memeImage.offsetLeft + memeImage.offsetWidth;
+          if (rectRight > window.innerWidth - 20) {
+            memeImage.style.left = Math.max(220, window.innerWidth - memeImage.offsetWidth - 20) + 'px';
+          }
+        }
+      });
+    </script>
     <footer>
       Kamden McKinney<br>
       University of Advancing Technology<br>

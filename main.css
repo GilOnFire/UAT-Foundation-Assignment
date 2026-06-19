@@ -24,3 +24,29 @@ footer{
     color:rgb(0, 0, 0);
     text-align:center;
 }
+/* Controls container centered above the meme */
+#controls{
+    /* center the buttons horizontally */
+    text-align:center;
+    /* small spacing above controls */
+    margin-top:10px;
+}
+/* Styling for control buttons to make them visible and tappable */
+#controls button{
+    /* spacing between buttons */
+    margin:0 8px;
+    /* comfortable clickable size */
+    padding:8px 12px;
+    /* subtle border and rounded corners */
+    border:1px solid #333;
+    border-radius:4px;
+    /* ensure buttons sit above other content */
+    z-index:10;
+}
+/* Wrapper to reserve space for absolute-positioned meme image */
+#memeWrapper{
+    /* ensure the wrapper provides vertical space for movement */
+    min-height:420px;
+    /* position relative so absolutely-positioned children are contained */
+    position:relative;
+}
