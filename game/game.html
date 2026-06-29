@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAT Foundation | Blackjack</title>
+    <link rel="stylesheet" href="gameStyles.css">
+</head>
+<body>
+    <header>    
+        <h1 id="gameTitle">Blackjack</h1>
+        <p id="gameInstructions">Get as close to 21 as you can without going over!</p>
+        <div id="player-hand"></div>
+        <p id="playerHand">Your current hand is: </p>
+        <div id="dealer-hand"></div>
+        <p id="dealerHand">The dealer's current hand is: </p>
+        <p id="gameMessage"></p>
+        <button id="StartGame">Start Game</button>
+        <button id="addCard">Hit</button>
+        <button id="keepHand">Stand</button>
+        <audio id="shuffleSound" preload="auto"></audio>
+        <div id="resultModal" class="modal hidden" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="resultTitle">Result</h2>
+                <p id="resultText"></p>
+                <button id="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+    </header>
+</body>
+    <script src="code.js"></script>
+</html>
+</html>

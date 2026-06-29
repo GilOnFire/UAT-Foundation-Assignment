@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAT Foundation | Palindrome Checker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+    <div class="page-shell">
+      <header class="page-header">
+        <p class="eyebrow">UAT Foundation Assignment</p>
+        <h1>Palindrome Checker</h1>
+        <p class="hero-text">Try a few words or phrases and see whether they read the same backward and forward.</p>
+      </header>
+      <nav class="top-nav">
+        <a href="../landing.html">Landing</a>
+        <a href="../meme/index.html">Moving Meme</a>
+        <a href="../boards.html">Program Objectives</a>
+        <a href="../game.html">Game</a>
+        <a href="palin.html" class="active">Palindrome Checker</a>
+        <a href="../Test-Table/table.html">Test Table</a>
+      </nav>
+
+      <div class="content-card">
+
+        
+        <div class="input-group">
+            <label for="inputText">Enter text to check:</label>
+            <input 
+                type="text" 
+                id="inputText" 
+                placeholder="e.g., racecar, level, hello"
+                autocomplete="off"
+            >
+        </div>
+
+        <button id="checkButton">Check Palindrome</button>
+
+        <div id="result"></div>
+      </div>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>

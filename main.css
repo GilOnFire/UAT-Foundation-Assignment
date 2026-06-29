@@ -1,52 +1,225 @@
-body{
-    background-color:rgb(211, 210, 151);
-    color:rgb(0, 0, 0)
+:root {
+  --bg: #f7f0ff;
+  --panel: #ffffff;
+  --accent: #7c3aed;
+  --accent-dark: #5b21b6;
+  --accent-soft: #f3e8ff;
+  --accent-red: #d9465f;
+  --text: #2b2140;
+  --muted: #6c6480;
+  --shadow: 0 12px 30px rgba(91, 33, 182, 0.12);
 }
-nav{
-    height:600px;
-    width:200px;
-    float:left;
-    line-height:30px;
-    padding:10px;
+
+* {
+  box-sizing: border-box;
 }
-footer{
-    text-align:center;
-    margin-right:200px;
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f8efff 0%, #fff3f6 100%);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
 }
-#memeImage{
-    margin-right:200px;
+
+.page-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 20px 40px;
+  width: 100%;
 }
-#page-titleOne{
-    color:rgb(0, 0, 0);
-    text-align:center;
-}   
-#page-titleTwo{
-    color:rgb(0, 0, 0);
-    text-align:center;
+
+.page-header {
+  text-align: center;
+  background: linear-gradient(145deg, #ffffff 0%, #f9f4ff 100%);
+  border-radius: 24px;
+  padding: 36px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+  border: 1px solid rgba(124, 58, 237, 0.12);
 }
-/* Controls container centered above the meme */
-#controls{
-    /* center the buttons horizontally */
-    text-align:center;
-    /* small spacing above controls */
-    margin-top:10px;
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
 }
-/* Styling for control buttons to make them visible and tappable */
-#controls button{
-    /* spacing between buttons */
-    margin:0 8px;
-    /* comfortable clickable size */
-    padding:8px 12px;
-    /* subtle border and rounded corners */
-    border:1px solid #333;
-    border-radius:4px;
-    /* ensure buttons sit above other content */
-    z-index:10;
+
+.page-header h1,
+#page-titleOne,
+#page-titleTwo {
+  margin: 0 0 10px;
+  color: var(--text);
+  text-align: center;
 }
-/* Wrapper to reserve space for absolute-positioned meme image */
-#memeWrapper{
-    /* ensure the wrapper provides vertical space for movement */
-    min-height:420px;
-    /* position relative so absolutely-positioned children are contained */
-    position:relative;
+
+.hero-text {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.03rem;
+}
+
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+
+.top-nav a,
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  background: var(--panel);
+  padding: 10px 14px;
+  border-radius: 999px;
+  box-shadow: 0 8px 16px rgba(36, 52, 71, 0.08);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.top-nav a:hover,
+.top-nav a.active,
+nav a:hover {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-red) 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.card,
+.content-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+}
+
+.card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(36, 52, 71, 0.16);
+}
+
+.card h2,
+.content-card h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--accent-dark);
+}
+
+.card p,
+.content-card p,
+.resource-list {
+  color: var(--muted);
+}
+
+.resource-list {
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 0 8px;
+  color: var(--muted);
+  clear: both;
+}
+
+.footer-subtext {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  color: #6f7b8a;
+}
+
+.game-shell {
+  padding: 24px;
+}
+
+.game-intro {
+  margin-bottom: 18px;
+}
+
+.game-intro h2 {
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: var(--accent-dark);
+}
+
+.game-intro p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.game-frame {
+  width: 100%;
+  min-height: 760px;
+  border: 0;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(36, 52, 71, 0.08);
+  background: #fff;
+}
+
+@media (max-width: 560px) {
+  .game-frame {
+    min-height: 720px;
+  }
+}
+
+nav {
+  height: auto;
+  width: auto;
+  float: none;
+  line-height: normal;
+  padding: 0;
+  margin: 18px 0 24px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 24px 16px;
+  }
 }

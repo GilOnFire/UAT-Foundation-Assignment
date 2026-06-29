@@ -1,0 +1,21 @@
+#controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#controls button {
+  margin: 0 8px;
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+#memeWrapper {
+  min-height: 420px;
+  position: relative;
+}
+
+#memeImage {
+  margin-right: 200px;
+}

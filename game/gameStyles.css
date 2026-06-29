@@ -1,0 +1,187 @@
+/* Basic styling for the Blackjack game */
+#gameTitle{
+    color:rgb(0, 0, 0);
+    text-align:center;
+    font-family:Arial, sans-serif;
+}
+/* Shared styles for player and dealer hands, and game instructions */
+#playerHand{
+    color:rgb(0, 0, 0);
+    text-align:center;
+    font-family:Arial, sans-serif;
+}
+/* Dealer hand styling */
+#dealerHand{
+    color:rgb(0, 0, 0);
+    text-align:center;
+    font-family:Arial, sans-serif;
+}
+/* Game instructions styling */
+#gameInstructions{
+    color:rgb(0, 0, 0);
+    text-align:center;
+    font-family:Arial, sans-serif;
+}
+/* Theme variables and small visual polish */
+:root{
+    --bg-1: #f7f7f9;
+    --bg-2: #ffffff;
+    --accent-1: #885f6f; /* warm mauve */
+    --accent-2: #b76a8a; /* lighter mauve */
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --muted: #f6f6f8;
+}
+/* Game title styling */
+#gameTitle{
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+}
+/* Button styling */
+#addCard{
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    font-size:16px;
+    background-color:rgb(136, 105, 113);
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+/* "Keep Hand" and "Start Game" buttons share the same styling */
+#keepHand{
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    font-size:16px;
+    background-color:rgb(136, 105, 113);
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+/* "Start Game" button styling */
+#StartGame{
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    font-size:16px;
+    background-color:rgb(136, 105, 113);
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* General page styling */
+body {
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+    color: #222;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+/* Container for the game */
+header {
+    max-width: 560px;
+    margin: 18px auto;
+    padding: 26px;
+    background: linear-gradient(180deg, var(--muted), #ffffff);
+    border-radius: 14px;
+    box-shadow: 0 10px 26px rgba(18,18,22,0.06);
+    text-align: center;
+}
+
+/* Button shared styles */
+#StartGame, #addCard, #keepHand {
+    min-width: 140px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: transform 0.12s cubic-bezier(.2,.9,.2,1), box-shadow 0.12s ease, opacity 0.12s ease;
+    box-shadow: 0 8px 20px rgba(136,105,113,0.10);
+    border: none;
+}
+/* Hover and active states */
+#StartGame:hover:not(:disabled), #addCard:hover:not(:disabled), #keepHand:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(136,105,113,0.16);
+}
+/* Active state */
+#StartGame:active, #addCard:active, #keepHand:active { transform: translateY(-1px); }
+
+/* Disabled state */
+#StartGame:disabled, #addCard:disabled, #keepHand:disabled {
+    opacity: 0.48;
+    cursor: not-allowed;
+    filter: grayscale(10%);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Game message */
+#gameMessage {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #3a3a3a;
+}
+
+/* Hands */
+#playerHand, #dealerHand {
+    margin-top: 10px;
+    font-size: 16px;
+    background: #ffffff;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 6px 18px rgba(18,18,22,0.03) inset;
+}
+
+/* Result modal */
+.modal.hidden { display: none; }
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.45);
+    z-index: 1200;
+}
+/* Modal content styling */
+.modal-content {
+    background: linear-gradient(180deg,#ffffff,#fbfbfb);
+    padding: 28px 32px;
+    border-radius: 14px;
+    box-shadow: 0 28px 60px rgba(12,12,16,0.12);
+    text-align: center;
+    min-width: 320px;
+    transform: translateY(-6px) scale(0.98);
+    animation: popIn 240ms cubic-bezier(.2,.8,.2,1) forwards;
+}
+/* Win and lose border accents */
+.modal.win .modal-content { border: 4px solid rgba(46, 204, 113, 0.12); }
+.modal.lose .modal-content { border: 4px solid rgba(231, 76, 60, 0.12); }
+.modal h2 { margin: 0 0 8px 0; font-size: 22px; }
+.modal p { margin: 6px 0 16px 0; font-size: 16px; }
+#playAgainBtn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(167,112,138,0.18);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+/* Play Again button hover effect */
+#playAgainBtn:hover { transform: translateY(-2px); }
+@keyframes popIn {
+    from { transform: translateY(-12px) scale(0.94); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+/* win / lose accents */
+.modal.win #resultTitle { color: var(--success); font-weight:700; }
+.modal.lose #resultTitle { color: var(--danger); font-weight:700; }
